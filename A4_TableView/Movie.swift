@@ -18,4 +18,13 @@ class Movie: Codable {
     var Runtime: String
     var Director: String
     var Actors: String
+    
+    init(Title: String, Year: String, Rated: String, Runtime: String, Director: String, Actors: String) {
+        self.Title = Title
+        self.Year = Year
+        self.Rated = Rated
+        self.Runtime = Runtime
+        self.Director = Director
+        self.Actors = Actors
+    }
 }
