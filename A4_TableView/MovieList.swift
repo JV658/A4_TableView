@@ -8,8 +8,9 @@
 import Foundation
 
 class MovieList {
-    var movies: Movies!
+    var movies = [Movie]()
     
+    // Do not modify this init method. it is used to add default movies to your movies array
     init(){
         if let url = Bundle.main.url(forResource: "movie", withExtension: "json"){
             do {
@@ -18,7 +19,9 @@ class MovieList {
 
                 let decoder = JSONDecoder()
                 
-                movies = try decoder.decode(Movies.self, from: data)
+                let results = try decoder.decode(Movies.self, from: data)
+                
+                movies = results.movies
                                 
             } catch {
                    fatalError("cannot convert JSON to movies: \(error)")
